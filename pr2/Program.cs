@@ -14,7 +14,7 @@ namespace ConsoleApp
                 Console.WriteLine("Загрузка данных с помощью Include():");
                 LoadWithInclude(context);
 
-                Console.WriteLine("\n------------------------------\n");
+                Console.WriteLine("\n============================\n");
 
                 Console.WriteLine("Загрузка данных с помощью Load():");
                 LoadWithLoad(context);
@@ -33,14 +33,9 @@ namespace ConsoleApp
             //проходимся по каждому сотруднику
             foreach (Employee employee in employees)
             {
-                //получаем имя, отдел, должность
-                string employeeName = employee.Name;
-                string departmentName = employee.Department.Name;
-                string positionName = employee.Position.Name;
-
-                Console.WriteLine($"Работник: {employeeName}");
-                Console.WriteLine($"  Отдел: {departmentName}");
-                Console.WriteLine($"  Должность: {positionName}");
+                Console.WriteLine($"-Работник: {employee.Name}");
+                Console.WriteLine($"  -Отдел: {employee.Department?.Name}");
+                Console.WriteLine($"  -Должность: {employee.Position?.Name}");
                 Console.WriteLine();
             }
         }
@@ -57,14 +52,9 @@ namespace ConsoleApp
 
             foreach (Employee employee in employees)
             {
-                // Свойства навигации доступны благодаря загрузке
-                string employeeName = employee.Name;
-                string departmentName = employee.Department.Name;
-                string positionName = employee.Position.Name;
-
-                Console.WriteLine($"Работник: {employeeName}");
-                Console.WriteLine($"  Отдел: {departmentName}");
-                Console.WriteLine($"  Должность: {positionName}");
+                Console.WriteLine($"-Работник: {employee.Name}");
+                Console.WriteLine($"  -Отдел: {employee.Department?.Name}");
+                Console.WriteLine($"  -Должность: {employee.Position?.Name}");
                 Console.WriteLine();
             }
         }
